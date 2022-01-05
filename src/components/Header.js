@@ -7,9 +7,7 @@ const Header = () => {
                 <h2 className='cursor-pointer'>Storage Tracker</h2>
             </div>
             <nav>
-                <ul className='flex gap-x-2'>
-                    <li>Home</li>
-                    <li>About</li>
+                <ul className='flex gap-x-2 cursor-pointer'>
                     <li>Products</li>
                 </ul>
 

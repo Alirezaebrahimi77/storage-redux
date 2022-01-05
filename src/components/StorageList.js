@@ -46,14 +46,14 @@ const StorageList = () => {
                 <p className='text-xl text-center mb-4'>Add Product:</p>
                 <form onSubmit={submitHandler}>
                     <div className='flex items-center mb-5'>
-                        <label htmlFor="productName" className='text-sm mr-4'>Product Name:</label>
-                    <input type="text" id="productName" className='border-2 rounded-md text-sm outline-emerald-400 py-1 px-3' name="title" value={product.title} onChange={changeHandler} />
+                        <label htmlFor="productName" className='text-sm mr-4'>Name:</label>
+                    <input type="text" id="productName" className='w-full border-2 rounded-md text-sm outline-emerald-400 py-1 px-3' name="title" value={product.title} onChange={changeHandler} />
                     
 
                     </div>
                     <div className='flex items-center'>
-                        <label htmlFor="productCategory" className='text-sm mr-4'>Select Category:</label>
-                        <select name="category" id="productCategory" className='border-2 border-emerald-400 outline-none py-1 px-6 rounded-md text-sm' value={product.category} onChange={changeHandler} >
+                        <label htmlFor="productCategory" className='text-sm mr-4'>Category:</label>
+                        <select name="category" id="productCategory" className='border-2 border-emerald-400 outline-none py-1 px-6 rounded-md text-sm bg-white' value={product.category} onChange={changeHandler} >
                             <option value="select" disabled>Select</option>
                             {/* <option value="electric">Electric</option>
                             <option value="wood">Wood</option>
@@ -78,18 +78,18 @@ const StorageList = () => {
             
 
             </div>
-            <div className={`w-full border-2 border-gray-100 rounded-sm fixed bottom-0 right-0 left-0 p-6 transition duration-300 translate-y-full ${showCategory && "translate-y-0"}`}>
-                    <div className="w-full flex justify-end">
+            <div className={`w-full border-2 border-gray-100 rounded-sm fixed bottom-0 right-0 left-0 transition duration-300 translate-y-full ${showCategory && "translate-y-0"}`}>
+                    <div className="w-full flex justify-end py-2 px-4">
                         <AiOutlineCloseCircle className='text-emerald-400 text-xl cursor-pointer' onClick={() => SetShowCategory(!showCategory)}/>
                         
 
                     </div>
 
-                        <form onSubmit={categoryHandler} className='w-full flex py-6'>
-                            <input type="text" placeholder='Category...' value={category.category} onChange={(e) => setCategory(e.target.value)} className='flex-1 border-2 rounded-md text-sm outline-emerald-400 py-1 px-3 mr-6'/>
+                        <form onSubmit={categoryHandler} className='w-full flex flex-col space-y-6 p-6'>
+                            <input type="text" placeholder='Type your new catrgory' value={category.category} onChange={(e) => setCategory(e.target.value)} className='flex-1 border-2 rounded-md text-sm outline-emerald-400 py-1 px-3 mr-6'/>
                             <button className='py-1 px-4 rounded-md text-white text-sm bg-emerald-400'>Add category</button>
                         </form>
-                </div>
+            </div>
             
             
         </div>
