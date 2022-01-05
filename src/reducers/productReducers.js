@@ -1,4 +1,4 @@
-import {ADD_PRODUCT, ADD_CATEGORY} from "../constants/productConstants"
+import {ADD_PRODUCT, ADD_CATEGORY, DELETE_PRODUCT} from "../constants/productConstants"
 export const productReducer = (state = {products: []}, action ) => {
 
     switch(action.type){
@@ -12,6 +12,21 @@ export const productReducer = (state = {products: []}, action ) => {
                 products: [...state.products, newProduct]
                 
             }
+
+        case DELETE_PRODUCT:
+            
+            const updatedProducts = [...state.products]
+            // const item = {...updatedProducts.find(p => p.id === action.payload)}
+            // const index = updatedProducts.findIndex(p => p.id  === action.payload)
+
+            const filteredProducts = updatedProducts.filter(p => p.id !== action.payload)
+            
+
+            
+        return {
+            products: filteredProducts
+
+        }
 
         
 

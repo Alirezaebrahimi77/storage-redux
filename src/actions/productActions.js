@@ -1,4 +1,4 @@
-import {ADD_PRODUCT, ADD_CATEGORY} from "../constants/productConstants"
+import {ADD_PRODUCT, ADD_CATEGORY, DELETE_PRODUCT} from "../constants/productConstants"
 
 export const addProduct = (id, data) => {
     return{
@@ -20,3 +20,10 @@ export const addCategory = (id, category ) => {
         }
     }
 } 
+
+export const deleteProduct = (id) => {
+    return{
+        type: DELETE_PRODUCT,
+        payload: id
+    }
+}
