@@ -10,7 +10,14 @@ const reducer = combineReducers({
  
 })
 
-let initialState = {}
+let initialState = {
+    categories:{
+        categories: localStorage.getItem("categories") ? JSON.parse(localStorage.getItem("categories")) : []
+    },
+    products:{
+        products: localStorage.getItem("products") ? JSON.parse(localStorage.getItem("products")) : []
+    }
+}
 const middleWare = [thunk]
 
 const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(...middleWare)));

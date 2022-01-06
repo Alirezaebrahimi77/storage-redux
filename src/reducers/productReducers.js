@@ -1,3 +1,4 @@
+import { LocalSeeOutlined } from "@material-ui/icons"
 import {ADD_PRODUCT, ADD_CATEGORY, DELETE_PRODUCT} from "../constants/productConstants"
 export const productReducer = (state = {products: []}, action ) => {
 
@@ -6,12 +7,15 @@ export const productReducer = (state = {products: []}, action ) => {
         case ADD_PRODUCT:
 
             const newProduct = {...action.payload.data, id: action.payload.id}
+            localStorage.setItem("products", JSON.stringify([...state.products, newProduct]))
 
             return{
                 
-                products: [...state.products, newProduct]
+                products: [...state.products, newProduct],
+                
                 
             }
+            
 
         case DELETE_PRODUCT:
             
@@ -22,7 +26,7 @@ export const productReducer = (state = {products: []}, action ) => {
             const filteredProducts = updatedProducts.filter(p => p.id !== action.payload)
             
 
-            
+            localStorage.setItem("products", JSON.stringify(filteredProducts))
         return {
             products: filteredProducts
 
@@ -41,9 +45,12 @@ export const categoriesReducer = (state = {categories: []}, action) => {
     switch(action.type){
         case ADD_CATEGORY:
             const newCategory = {...action.payload, id: action.payload.id}
+            localStorage.setItem("categories", JSON.stringify([...state.categories, newCategory]))
+           
 
             return{
-                categories: [...state.categories, newCategory]
+                categories: [...state.categories, newCategory],
+                
                
             }
 
